@@ -5,15 +5,20 @@
   
 
   
-  <title>LearnDo</title>
+  <title>Could not get lock /var/lib/dpkg/lock, 解决方法 | LearnDo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LearnDo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="当执行sudo apt-get XXX这种命令时，出现类似下面的报错： 12E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)E: Unable to lock the administration directory (/var/lib/dpkg/), is another">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Could not get lock &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock, 解决方法">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/index.html">
 <meta property="og:site_name" content="LearnDo">
+<meta property="og:description" content="当执行sudo apt-get XXX这种命令时，出现类似下面的报错： 12E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)E: Unable to lock the administration directory (/var/lib/dpkg/), is another">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-03T02:12:33.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LearnDo">
+<meta name="twitter:title" content="Could not get lock &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock, 解决方法">
+<meta name="twitter:description" content="当执行sudo apt-get XXX这种命令时，出现类似下面的报错： 12E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)E: Unable to lock the administration directory (/var/lib/dpkg/), is another">
   
     <link rel="alternate" href="/atom.xml" title="LearnDo" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Could-not-get-lock-var-lib-dpkg-lock-解决方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Could-not-get-lock-var-lib-dpkg-lock-解决方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/" class="article-date">
   <time datetime="2018-04-03T02:00:00.000Z" itemprop="datePublished">2018-04-03</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/">Could not get lock /var/lib/dpkg/lock, 解决方法</a>
+    <h1 class="article-title" itemprop="name">
+      Could not get lock /var/lib/dpkg/lock, 解决方法
     </h1>
   
 
@@ -87,12 +90,20 @@
         <p>当执行<code>sudo apt-get XXX</code>这种命令时，出现类似下面的报错：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure>
 <p>这是因为，还有一个进程在使用 <strong>apt-get</strong> 进行下载操作，此时解决方法是：</p>
-<p><strong>找到并杀掉所有的 apt-get 和 apt 进程</strong>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/#more">Read More</a>
-          </p>
-        
+<p><strong>找到并杀掉所有的 apt-get 和 apt 进程</strong><a id="more"></a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep apt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> sudo kill processnumber</span><br><span class="line">sudo kill 1997</span><br></pre></td></tr></table></figure>
+<p>然后，关闭当前终端，再重新开一个终端，<code>sudo apt-get</code>命令就可以使用了。</p>
+<p><strong>删除锁定文件</strong></p>
+<p>锁定的文件会阻止 Linux 系统中某些文件或者数据的访问，一旦运行了 apt-get 或者 apt 命令，锁定文件将会创建于 <code>/var/lib/apt/lists/</code>、<code>/var/lib/dpkg/</code>、<code>/var/cache/apt/archives/</code> 中。</p>
+<p>这有助于运行中的 apt-get 或者 apt 进程避免被其它需要使用相同文件的用户或者系统进程所打断。当该进程执行完毕后，锁定文件将会删除。</p>
+<p>当没有看到 apt-get 或者 apt 进程的情况下，在上面的文件夹中看到了锁定文件，这是因为，进程由于某个原因被杀掉了，因此需要删除锁定文件来避免报错。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --configure -a</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
@@ -104,60 +115,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Hexo-GitHub-Pages-搭建静态博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/" class="article-date">
-  <time datetime="2018-04-01T08:16:16.000Z" itemprop="datePublished">2018-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/">Hexo + GitHub Pages 搭建静态博客</a>
-    </h1>
+    <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo + GitHub Pages 搭建静态博客</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ul>
-<li>GitHub 创建个人仓库</li>
-<li>安装 Git</li>
-<li>安装 Node.js</li>
-<li>安装 Hexo</li>
-<li>建站、关联 GitHub
-        
-          <p class="article-more-link">
-            <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/" data-id="cjfj143eg0001rd7dso9va9o2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
