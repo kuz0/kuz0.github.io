@@ -5,15 +5,20 @@
   
 
   
-  <title>LearnDo</title>
+  <title>在 Git 下创建一个空分支 | LearnDo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LearnDo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="有时候，我们需要在 Git 里面创建一个空分支，该分支不继承任何提交，没有父节点，完全是一个干净的分支，例如，我们需要在某个分支里存放项目文档。 使用传统的 git checkout 命令创建的分支是有父节点的，意味着新 branch 包含了历史提交，所以无法直接使用该命令。 解决方法使用 git checkout 的 –orphan 参数：">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Git 下创建一个空分支">
+<meta property="og:url" content="http://yoursite.com/2018/04/04/在-Git-下创建一个空分支/index.html">
 <meta property="og:site_name" content="LearnDo">
+<meta property="og:description" content="有时候，我们需要在 Git 里面创建一个空分支，该分支不继承任何提交，没有父节点，完全是一个干净的分支，例如，我们需要在某个分支里存放项目文档。 使用传统的 git checkout 命令创建的分支是有父节点的，意味着新 branch 包含了历史提交，所以无法直接使用该命令。 解决方法使用 git checkout 的 –orphan 参数：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-04T15:17:55.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LearnDo">
+<meta name="twitter:title" content="在 Git 下创建一个空分支">
+<meta name="twitter:description" content="有时候，我们需要在 Git 里面创建一个空分支，该分支不继承任何提交，没有父节点，完全是一个干净的分支，例如，我们需要在某个分支里存放项目文档。 使用传统的 git checkout 命令创建的分支是有父节点的，意味着新 branch 包含了历史提交，所以无法直接使用该命令。 解决方法使用 git checkout 的 –orphan 参数：">
   
     <link rel="alternate" href="/atom.xml" title="LearnDo" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-在-Git-下创建一个空分支" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-在-Git-下创建一个空分支" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/04/在-Git-下创建一个空分支/" class="article-date">
   <time datetime="2018-04-04T12:20:20.000Z" itemprop="datePublished">2018-04-04</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/04/在-Git-下创建一个空分支/">在 Git 下创建一个空分支</a>
+    <h1 class="article-title" itemprop="name">
+      在 Git 下创建一个空分支
     </h1>
   
 
@@ -86,12 +89,18 @@
       
         <p>有时候，我们需要在 Git 里面创建一个空分支，该分支不继承任何提交，没有父节点，完全是一个干净的分支，例如，我们需要在某个分支里存放项目文档。</p>
 <p>使用传统的 <strong>git checkout</strong> 命令创建的分支是有父节点的，意味着新 branch 包含了历史提交，所以无法直接使用该命令。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>使用 git checkout 的 –orphan 参数</strong>：
-        
-          <p class="article-more-link">
-            <a href="/2018/04/04/在-Git-下创建一个空分支/#more">Read More</a>
-          </p>
-        
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>使用 git checkout 的 –orphan 参数</strong>：<a id="more"></a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan doc</span><br></pre></td></tr></table></figure>
+<p>该命令会创建一个名为 doc 的分支，并且该分支下有前一个分支下的所有文件。</p>
+<p><strong>删除当前所有内容，用 git 命令</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -rf .</span><br></pre></td></tr></table></figure>
+<p><strong>使用 commit 命令来提交分支</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -am "new branch for documentation"</span><br></pre></td></tr></table></figure>
+<p>如果没有任何文件提交的话，分支是看不到的，可以创建一个新文件后再次提交则新创建的 branch 就会显示出来。</p>
+<p><strong>使用 branch 来查看分支是否创建成功</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<p><a href="https://segmentfault.com/a/1190000004931751" target="_blank" rel="noopener">Thx</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -103,106 +112,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Could-not-get-lock-var-lib-dpkg-lock-解决方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/" class="article-date">
-  <time datetime="2018-04-03T02:00:00.000Z" itemprop="datePublished">2018-04-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/">Could not get lock /var/lib/dpkg/lock, 解决方法</a>
-    </h1>
+    <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Could not get lock /var/lib/dpkg/lock, 解决方法</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当执行<code>sudo apt-get XXX</code>这种命令时，出现类似下面的报错：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure>
-<p>这是因为，还有一个进程在使用 <strong>apt-get</strong> 进行下载操作，此时解决方法是：</p>
-<p><strong>找到并杀掉所有的 apt-get 和 apt 进程</strong>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/" data-id="cjfl8n9j70003767durhv1888" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Hexo-GitHub-Pages-搭建静态博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/" class="article-date">
-  <time datetime="2018-04-01T08:16:16.000Z" itemprop="datePublished">2018-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/">Hexo + GitHub Pages 搭建静态博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ul>
-<li>GitHub 创建个人仓库</li>
-<li>安装 Git</li>
-<li>安装 Node.js</li>
-<li>安装 Hexo</li>
-<li>建站、关联 GitHub
-        
-          <p class="article-more-link">
-            <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/" data-id="cjfl8n9j20001767digw1x1wy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
