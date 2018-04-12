@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>装饰器 | LearnDo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="装饰器本质上是一个 Python 函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装饰器">
+<meta property="og:url" content="http://yoursite.com/2018/04/12/装饰器/index.html">
+<meta property="og:site_name" content="LearnDo">
+<meta property="og:description" content="装饰器本质上是一个 Python 函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-12T14:48:03.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="装饰器">
+<meta name="twitter:description" content="装饰器本质上是一个 Python 函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。">
+  
+    <link rel="alternate" href="/atom.xml" title="LearnDo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LearnDo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/12/装饰器/" class="article-date">
+  <time datetime="2018-04-12T14:21:20.000Z" itemprop="datePublished">2018-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      装饰器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>装饰器本质上是一个 Python 函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。<a id="more"></a></p>
+<p>由于函数也是一个对象，而且函数对象可以被赋值给变量，所以，通过变量也能调用该函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">now</span><span class="params">()</span>:</span></span><br><span class="line"><span class="meta">... </span>    print(<span class="string">'2015-3-25'</span>)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = now</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f()</span><br><span class="line"><span class="number">2015</span><span class="number">-3</span><span class="number">-25</span></span><br></pre></td></tr></table></figure>
+<p>函数对象有一个<code>__name__</code>属性，可以拿到函数的名字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now.__name__</span><br><span class="line"><span class="string">'now'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.__name__</span><br><span class="line"><span class="string">'now'</span></span><br></pre></td></tr></table></figure>
+<p>现在，假设我们要增强<code>now()</code>函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改<code>now()</code>函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。</p>
+<p>本质上，decorator 就是一个返回函数的高阶函数。所以，我们要定义一个能打印日志的 decorator，可以定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        print(<span class="string">'call %s():'</span> % func.__name__)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+<p>观察上面的<code>log</code>，因为它是一个 decorator，所以接受一个函数作为参数，并返回一个函数。我们要借助 Python 的 @ 语法，把 decorator 置于函数的定义处：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@log</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">now</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'2015-3-25'</span>)</span><br></pre></td></tr></table></figure>
+<p>调用<code>now()</code>函数，不仅会运行<code>now()</code>函数本身，还会在运行<code>now()</code>函数前打印一行日志：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now()</span><br><span class="line">call now():</span><br><span class="line"><span class="number">2015</span><span class="number">-3</span><span class="number">-25</span></span><br></pre></td></tr></table></figure>
+<p>把<code>@log</code>放到<code>now()</code>函数的定义处，相当于执行了语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now = log(now)</span><br></pre></td></tr></table></figure>
+<p>由于<code>log()</code>是一个 decorator，返回一个函数，所以，原来的<code>now()</code>函数仍然存在，只是现在同名的<code>now</code>变量指向了新的函数，于是调用<code>now()</code>将执行新函数，即在<code>log()</code>函数中返回的<code>wrapper()</code>函数。</p>
+<p><code>wrapper()</code>函数的参数定义是<code>(*args, **kw)</code>，因此，<code>wrapper()</code>函数可以接受任意参数的调用。在<code>wrapper()</code>函数内，首先打印日志，再紧接着调用原始函数。</p>
+<p>如果 decorator 本身需要传入参数，那就需要编写一个返回 decorator 的高阶函数，写出来会更复杂。比如，要自定义 log 的文本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>这个3层嵌套的decorator用法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@log('execute')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">now</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'2015-3-25'</span>)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now()</span><br><span class="line">execute now():</span><br><span class="line"><span class="number">2015</span><span class="number">-3</span><span class="number">-25</span></span><br></pre></td></tr></table></figure>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now = log(<span class="string">'execute'</span>)(now)</span><br></pre></td></tr></table></figure>
+<p>我们来剖析上面的语句，首先执行<code>log(&#39;execute&#39;)</code>，返回的是<code>decorator</code>函数，再调用返回的函数，参数是<code>now</code>函数，返回值最终是<code>wrapper</code>函数。</p>
+<p>以上两种 decorator 的定义都没有问题，但还差最后一步。因为我们讲了函数也是对象，它有<code>__name__</code>等属性，但你去看经过 decorator 装饰之后的函数，它们的<code>__name__</code>已经从原来的<code>&#39;now&#39;</code>变成了<code>&#39;wrapper&#39;</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>now.__name__</span><br><span class="line"><span class="string">'wrapper'</span></span><br></pre></td></tr></table></figure>
+<p>因为返回的那个<code>wrapper()</code>函数名字就是<code>&#39;wrapper&#39;</code>，所以，需要把原始函数的<code>__name__</code>等属性复制到<code>wrapper()</code>函数中，否则，有些依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写<code>wrapper.__name__ = func.__name__</code>这样的代码，Python 内置的<code>functools.wraps</code>就是干这个事的，所以，一个完整的 decorator 的写法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">    @functools.wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        print(<span class="string">'call %s():'</span> % func.__name__)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+<p>或者针对带参数的decorator：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">        @functools.wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">            print(<span class="string">'%s %s():'</span> % (text, func.__name__))</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p><code>import functools</code>是导入<code>functools</code>模块。只需在定义<code>wrapper()</code>的前面加上<a href="mailto:`@functools.wraps" target="_blank" rel="noopener">`@functools.wraps</a>(func)`即可。</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/12/装饰器/" data-id="cjfwn2cd10000mn7dumx5k43y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/04/在-Git-下创建一个空分支/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在 Git 下创建一个空分支</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/12/装饰器/">装饰器</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/04/在-Git-下创建一个空分支/">在 Git 下创建一个空分支</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/">Could not get lock /var/lib/dpkg/lock, 解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/">Hexo + GitHub Pages 搭建静态博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 kuz0<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
