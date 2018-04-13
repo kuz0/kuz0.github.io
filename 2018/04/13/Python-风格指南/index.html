@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python 风格指南 | LearnDo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 分号不要在行尾加分号，也不要用分号将两条命令放在同一行。 2. 行长度每行不超过 80 个字符。例外：1. 长的导入模块语句，2. 注释里的URL。 不要使用反斜杠连接行。Python 会将圆括号、中括号和花括号中的行隐式的连接起来，可以利用这个特点。如果需要，可以在表达式外围增加一对额外的圆括号。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 风格指南">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/Python-风格指南/index.html">
+<meta property="og:site_name" content="LearnDo">
+<meta property="og:description" content="1. 分号不要在行尾加分号，也不要用分号将两条命令放在同一行。 2. 行长度每行不超过 80 个字符。例外：1. 长的导入模块语句，2. 注释里的URL。 不要使用反斜杠连接行。Python 会将圆括号、中括号和花括号中的行隐式的连接起来，可以利用这个特点。如果需要，可以在表达式外围增加一对额外的圆括号。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-13T02:14:56.226Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 风格指南">
+<meta name="twitter:description" content="1. 分号不要在行尾加分号，也不要用分号将两条命令放在同一行。 2. 行长度每行不超过 80 个字符。例外：1. 长的导入模块语句，2. 注释里的URL。 不要使用反斜杠连接行。Python 会将圆括号、中括号和花括号中的行隐式的连接起来，可以利用这个特点。如果需要，可以在表达式外围增加一对额外的圆括号。">
+  
+    <link rel="alternate" href="/atom.xml" title="LearnDo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LearnDo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python-风格指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/13/Python-风格指南/" class="article-date">
+  <time datetime="2018-04-13T01:36:01.000Z" itemprop="datePublished">2018-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python 风格指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-分号"><a href="#1-分号" class="headerlink" title="1. 分号"></a>1. 分号</h2><p><strong>不要在行尾加分号，也不要用分号将两条命令放在同一行。</strong></p>
+<h2 id="2-行长度"><a href="#2-行长度" class="headerlink" title="2. 行长度"></a>2. 行长度</h2><p><strong>每行不超过 80 个字符。</strong><br>例外：1. 长的导入模块语句，2. 注释里的URL。</p>
+<p><strong>不要使用反斜杠连接行。</strong>Python 会将<strong>圆括号、中括号和花括号中的行隐式的连接起来，</strong>可以利用这个特点。如果需要，可以在表达式外围增加一对额外的圆括号。<a id="more"></a></p>
+<p><strong>1). 变量申明：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line">s = <span class="string">'This will build a very long long long long long long long long long long long string'</span></span><br><span class="line"><span class="comment"># good</span></span><br><span class="line">s = (<span class="string">'This will build a very long long long long'</span></span><br><span class="line">     <span class="string">'long long long long long long long string'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>2). 条件判断：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line"><span class="keyword">if</span> (width == <span class="number">0</span> <span class="keyword">and</span> height == <span class="number">0</span> <span class="keyword">and</span> color == <span class="string">'red'</span> <span class="keyword">and</span> emphasis == <span class="string">'strong'</span> <span class="keyword">and</span> sex=<span class="string">'male'</span> <span class="keyword">and</span> age=<span class="number">25</span>):</span><br><span class="line"><span class="comment"># good</span></span><br><span class="line"><span class="keyword">if</span> (width == <span class="number">0</span> <span class="keyword">and</span> height == <span class="number">0</span> <span class="keyword">and</span></span><br><span class="line">    color == <span class="string">'red'</span> <span class="keyword">and</span> emphasis == <span class="string">'strong'</span> <span class="keyword">and</span></span><br><span class="line">    sex=<span class="string">'male'</span> <span class="keyword">and</span> age=<span class="number">25</span>):</span><br></pre></td></tr></table></figure>
+<p><strong>3). 函数入参：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line">fun(self, name, width, height, color=<span class="string">'black'</span>, height=<span class="number">170</span>, age=<span class="number">0</span>, sex=<span class="string">'male'</span>, emphasis=<span class="keyword">None</span>)</span><br><span class="line"><span class="comment"># good</span></span><br><span class="line">fun(self, name, width, height, color=<span class="string">'black'</span>, height=<span class="number">170</span>,</span><br><span class="line">    age=<span class="number">0</span>, sex=<span class="string">'male'</span>, emphasis=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-缩进"><a href="#3-缩进" class="headerlink" title="3. 缩进"></a>3. 缩进</h2><p><strong>用 4 个空格来缩进代码。</strong></p>
+<p>绝对不要用 tab，也不要 tab 和空格混用。对于行连接的情况，你应该垂直对齐换行的元素，或者使用 4 空格的悬挂式缩进（这时第一行不应该有参数）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br><span class="line"><span class="comment"># good</span></span><br><span class="line">foo = long_fuction_name(</span><br><span class="line">    var_one, var_two, var_three,</span><br><span class="line">    var_four)</span><br><span class="line"><span class="comment"># better</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br></pre></td></tr></table></figure>
+<h2 id="4-导入格式"><a href="#4-导入格式" class="headerlink" title="4. 导入格式"></a>4. 导入格式</h2><p><strong>每个导入应该独占一行。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line"><span class="keyword">import</span> os,sys,re</span><br><span class="line"><span class="comment"># good</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+<p>导入总应该放在文件顶部，位于模块注释和文档字符串之后，模块全局变量和常量之前。导入应该按照从最通用到最不通用的顺序分组。</p>
+<ul>
+<li>标准库导入</li>
+<li>第三方库导入</li>
+<li>应用程序指定导入</li>
+</ul>
+<p>导入的分组中：应该根据每个模块的完整包路径按字典序排序，忽略大小写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> foo</span><br><span class="line"><span class="keyword">from</span> foo <span class="keyword">import</span> bar</span><br><span class="line"><span class="keyword">from</span> foo.bar <span class="keyword">import</span> baz</span><br><span class="line"><span class="keyword">from</span> foo.bar <span class="keyword">import</span> Quux</span><br><span class="line"><span class="keyword">from</span> Foob <span class="keyword">import</span> ar</span><br></pre></td></tr></table></figure>
+<h2 id="5-命名"><a href="#5-命名" class="headerlink" title="5. 命名"></a>5. 命名</h2><p>命名是一个时时刻刻都要碰到，也是非常基本的技能！</p>
+<p><strong>1). 全部小写</strong><br>如果名字长，中间用下划线连接。</p>
+<ol>
+<li>局部变量<code>local_var_name</code></li>
+<li>函数名字<code>function_name</code></li>
+<li>函数的参数名字<code>function_parameter_name</code></li>
+<li>模块和包的名字<code>module_name</code> <code>package_name</code></li>
+</ol>
+<p><strong>2). 全部大写</strong><br>全局变量，中间用下划线连接<code>GLOBAL_VAR_NAME</code></p>
+<p><strong>3). 驼峰式命名法</strong></p>
+<ol>
+<li>类的名字<code>ClassName</code> 比如<code>PreparedRequest</code></li>
+<li>异常的名字<code>ExceptionName</code> 比如<code>BaseException</code></li>
+</ol>
+<h2 id="6-字符串"><a href="#6-字符串" class="headerlink" title="6. 字符串"></a>6. 字符串</h2><p>字符串主要是<strong>格式化和引号的引用</strong>两大问题。</p>
+<p><strong>1). 字符串格式化一般使用 % 或者 format 来格式化字符串，</strong>其实 Python3 里面推荐使用 format 方法，灵活方便强大。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># good</span></span><br><span class="line">x = <span class="string">'&#123;&#125;, &#123;&#125;'</span>.format(imperation, expletive)</span><br></pre></td></tr></table></figure>
+<p><strong>2). 避免在循环中用 + 和 += 操作符来累加字符串</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line">table = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span><br><span class="line">    table += <span class="string">'abc'</span></span><br><span class="line">print(table)</span><br></pre></td></tr></table></figure>
+<p>因为你每加一次，就会分配一个临时内存，如果运行10万次开销非常大，时间也很长。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># good</span></span><br><span class="line">table = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span><br><span class="line">    table.append(<span class="string">'abc'</span>)</span><br><span class="line">print(<span class="string">''</span>.join(table))</span><br></pre></td></tr></table></figure>
+<p>好的方法是把字符串都放在列表里面，用 join 方法一次性连接起来，时间会比上面那种方法快很多，内存开销也小一些。</p>
+<p><strong>3). 引号使用</strong><br>同一个文件中，保持使用字符串引号的一致性。使用单引号<code>’</code>或者双引号<code>”</code>之一用以引用字符串，并在同一文件中沿用。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line">Python(<span class="string">"Why are you hiding your eyes?"</span>)</span><br><span class="line">Gollum(<span class="string">'The lint. It burns us.'</span>)</span><br><span class="line">Gollum(<span class="string">"Always the great ling. Watching. Watching."</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># good</span></span><br><span class="line">Python(<span class="string">'Why are you hiding your eyes?'</span>)</span><br><span class="line">Gollum(<span class="string">"I'm scared of lint errors."</span>)</span><br><span class="line">Narrator(<span class="string">'"Good!" thought a happy Python reviewer.'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="7-函数"><a href="#7-函数" class="headerlink" title="7. 函数"></a>7. 函数</h2><p>一个函数必须要有详细的文档字符串说明，要包含以下 3 个部分：</p>
+<p><strong>1). 参数Args</strong><br>列出每个参数的名字，并在名字后使用一个冒号和一个空格，分隔对该参数的描述。<br>描述应该包括所需的类型和含义。如果一个函数接受 <em>foo(可变长度参数列表)</em> 或者 <em>bar(任意关键字参数)</em> ，应该详细列出 <em>foo 和 bar</em>。</p>
+<p><strong>2). 返回值 Returns: (或者 Yields: 用于生成器)</strong><br>描述返回值的类型和语义。如果函数返回 None，这一部分可以省略。</p>
+<p><strong>3). 异常 Raises</strong><br>列出与接口有关的所有异常，这个是非常正规的写法。<br>当然大部分我们的函数都是短小精悍的，一般都只考虑参数说明和返回值，并不是每个人都会考虑到异常处理，比如：</p>
+<ul>
+<li>列表下标越界</li>
+<li>动态变量为空</li>
+<li>类型不匹配等等</li>
+</ul>
+<p>Google 这种写法其实对我们在构造一个新的函数，思考推敲函数的时候非常有借鉴意义，好的代码不仅精美还要安全。</p>
+<h2 id="8-类"><a href="#8-类" class="headerlink" title="8. 类"></a>8. 类</h2><p><strong>如果一个类不继承自其它类，就显式的从 object 继承，嵌套类也一样。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bad</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># good</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleClass</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>继承自 object 是为了使属性(properties)正常工作，并且这样可以保护你的代码，避免一些隐患。</p>
+<p>另，类应有定义描述该类的文档字符串。如果你的类有公共属性(Attributes)，那么文档中应该有一个属性(Attributes)段，并且应该遵守和函数参数相同的格式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleClass</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Summary of class here.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Longer class information...</span></span><br><span class="line"><span class="string">    Longer class information...</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Attributes:</span></span><br><span class="line"><span class="string">        likes_spam: A boolean indicating if we like SPAM or not.</span></span><br><span class="line"><span class="string">        eggs: An integer count of the eggs we have laid.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, likes_spam=False)</span>:</span></span><br><span class="line">        <span class="string">"""Inits SampleClass with blah."""</span></span><br><span class="line">        self.likes_spam = likes_spam</span><br><span class="line">        self.eggs = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">public_method</span><span class="params">(self)</span>:</span></span><br><span class="line">      <span class="string">"""Performs operation blah."""</span></span><br></pre></td></tr></table></figure>
+<h2 id="9-文件和-Sockets"><a href="#9-文件和-Sockets" class="headerlink" title="9. 文件和 Sockets"></a>9. 文件和 Sockets</h2><p><strong>在文件和 sockets 结束时，显式的关闭它。</strong></p>
+<p>除了文件外，sockets 或其他类似文件的对象在没有必要的情况下打开，会有许多副作用，特别是安全问题，例如：</p>
+<ul>
+<li>它们可能会消耗有限的系统资源，如文件描述符。如果这些资源在使用后没有及时归还系统，那么用于处理这些对象的代码会将资源消耗殆尽。</li>
+<li>仅仅是从逻辑上关闭文件和 sockets，那么它们仍然可能会被其共享的程序在无意中进行读或者写操作。</li>
+<li>只有当它们真正被关闭后，对于它们尝试进行读或者写操作将会抛出异常，并使得问题快速显现出来。</li>
+</ul>
+<p>其实它们都是带上下文管理器的，建议用 with 自动关闭：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'hello.txt'</span>) <span class="keyword">as</span> hello_file:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> hello_file:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
+<h2 id="10-异常"><a href="#10-异常" class="headerlink" title="10. 异常"></a>10. 异常</h2><p>异常这块非常重要，Google 花了很多的笔墨描述异常使用，异常有利有弊，小心使用。</p>
+<p><strong>1. 优点</strong><br>正常操作代码的控制流不会和错误处理代码混在一起。当某种条件发生时，它也允许控制流跳过多个框架。例如，一步跳出 N 个嵌套的函数，而不必继续执行错误的代码。</p>
+<p><strong>2. 缺点</strong><br>可能会导致让人困惑的控制流，调用库时容易错过错误情况。</p>
+<p><strong>3. 异常必须遵守特定条件</strong></p>
+<p>1). 触发异常<br>建议用 raise MyException(“Error message”) 或者 raise MyException。<br>不要使用两个参数的形式( raise MyException, “Error message” )或者过时的字符串异常( raise “Error message” )。</p>
+<p>2). 自定义异常<br>模块或包应该定义自己特定域的异常基类，这个基类应该从内建的 Exception 类继承。模块的异常基类应该叫做”Error”。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Error</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>3). 永远不要捕获所有异常<br>永远不要使用 except: 语句来捕获所有异常。也不要捕获 Exception 或者 StandardError，除非你打算重新触发该异常。<br>在异常这方面，Python非常宽容，except: 真的会捕获包括 Python 语法错误在内的任何错误。使用 except: 很容易隐藏真正的 bug。</p>
+<p>4). 尽量减少 try / except 块中的代码量<br>try 块的体积越大，期望之外的异常就越容易被触发。这种情况下 try / except 块将隐藏真正的错误。</p>
+<p>5). 使用 finally 子句<br>用 finally 来执行那些无论 try 块中有不发生异常都应该被执行的代码。这对于清理资源常常很有用，例如关闭文件。当捕获异常时，使用 as 而不要用逗号。这在 Python3 里面也是推荐使用的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> Error</span><br><span class="line"><span class="keyword">except</span> Error <span class="keyword">as</span> error:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论: </strong></p>
+<p>代码的功力不是一朝一夕积累起来的，但是好的编程风格可以很快建立，越早了解越好，可以少走一些弯路，并且减少很多 debug 的时间，因为好的代码风格已经帮助你规避了一些风险，所以要早早养成良好的编程习惯。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/13/Python-风格指南/" data-id="cjfxblvbv00032u7dik38xku0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/12/装饰器/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">装饰器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/13/Python-风格指南/">Python 风格指南</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/12/装饰器/">装饰器</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/04/在-Git-下创建一个空分支/">在 Git 下创建一个空分支</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/Could-not-get-lock-var-lib-dpkg-lock-解决方法/">Could not get lock /var/lib/dpkg/lock, 解决方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Hexo-GitHub-Pages-搭建静态博客/">Hexo + GitHub Pages 搭建静态博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 kuz0<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
