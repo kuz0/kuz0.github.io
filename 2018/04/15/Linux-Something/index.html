@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux Something | LearnDo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. Linux 常用命令 ls (list) -a (all) -l (详细信息) cd (change directory) pwd (print work directory) mkdir (make directory) (-p abc/def) mv (move) pathname1 pathname2 (移动和重命名文件) touch pathname (创建空文件) cp (copy">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Something">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/Linux-Something/index.html">
+<meta property="og:site_name" content="LearnDo">
+<meta property="og:description" content="1. Linux 常用命令 ls (list) -a (all) -l (详细信息) cd (change directory) pwd (print work directory) mkdir (make directory) (-p abc/def) mv (move) pathname1 pathname2 (移动和重命名文件) touch pathname (创建空文件) cp (copy">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-15T02:51:31.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux Something">
+<meta name="twitter:description" content="1. Linux 常用命令 ls (list) -a (all) -l (详细信息) cd (change directory) pwd (print work directory) mkdir (make directory) (-p abc/def) mv (move) pathname1 pathname2 (移动和重命名文件) touch pathname (创建空文件) cp (copy">
+  
+    <link rel="alternate" href="/atom.xml" title="LearnDo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LearnDo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux-Something" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/15/Linux-Something/" class="article-date">
+  <time datetime="2018-04-15T02:35:10.000Z" itemprop="datePublished">2018-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux Something
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Linux-常用命令"><a href="#1-Linux-常用命令" class="headerlink" title="1. Linux 常用命令"></a>1. Linux 常用命令</h2><ul>
+<li>ls (list) -a (all) -l (详细信息)</li>
+<li>cd (change directory)</li>
+<li>pwd (print work directory)</li>
+<li>mkdir (make directory) (-p abc/def)</li>
+<li>mv (move) pathname1 pathname2 (移动和重命名文件)</li>
+<li>touch pathname (创建空文件)</li>
+<li>cp (copy) pathname1 pathname2 -r (复制文件夹) -f (强制复制)</li>
+<li>rm (remove) pathname -r -f</li>
+<li>cat (直接在命令行中显示文件内容)</li>
+<li>rmdir (remove directory 删除空文件夹)</li>
+<li>ln (link 连接文件) </li>
+<li>man (查询 man 手册)</li>
+<li>apt-get install / remove<a id="more"></a></li>
+</ul>
+<h2 id="2-Vi-使用"><a href="#2-Vi-使用" class="headerlink" title="2. Vi 使用"></a>2. Vi 使用</h2><p>使用 Vi 来打开或创建一个文件：<code>vi pathname</code></p>
+<p>Vi 的两种模式：</p>
+<ul>
+<li><p>命令模式：当 Vi 打开时，<strong>默认为命令模式</strong>，要转入输入模式，需要按 a 或者 i 键。在命令模式下，此时键盘上输入的所有东西都被 Vi 当作命令来对待。命令模式下最好不要乱输入，此时应输入相应的命令，来让 Vi 做相应的事。</p>
+</li>
+<li><p>输入模式：用来向文件输入内容。可以从命令模式中<strong>按 a 或者 i 键进入输入模式</strong>。进入输入模式后，就可以随意按键盘进行输入了。输入完成后如果要保存，要先退回到命令模式（因为保存也是一种命令）。在输入模式下<strong>按 ESC 键退回到命令模式</strong>。</p>
+<p><strong>注意看屏幕左下角</strong>，当命令模式时，无提示信息或者提示文件名等信息，当处于输入模式时，提示 <strong>– INSERT –</strong> 。</p>
+</li>
+</ul>
+<p>在命令模式下如何保存：</p>
+<ul>
+<li>:wq            保存并且退出</li>
+<li>:w            只保存不退出</li>
+<li>:q            不保存退出        进来看了一下没改退出</li>
+<li>:q!            不保存强制退出</li>
+<li>:wq!        保存并强制退出</li>
+</ul>
+<p>查找、快速切换行、设置显示行号</p>
+<ul>
+<li>查找 – 在命令模式下，输入 /xxx，就可以查找到 xxx</li>
+<li>快速切换行 – 在命令模式下，输入 :num，就可以快速切换到 num 行</li>
+<li>设置显示行号 – 在命令模式下，输入 :set nu，就可以显示行号，输入 :set nonu，不显示行号</li>
+<li>设置永久显示行号，需修改 Vi 配置文件。打开 Vi 配置文件 ~/.vimrc，输入 <code>set nu</code> 即可</li>
+</ul>
+<p>行删除、行复制粘贴</p>
+<ul>
+<li>行删除 – 命令模式下，先将光标移动到要删除的行（或者 :n），然后输入 dd，如果要删除连续多行，譬如要删除连续的三行光标，则在三行的第一行，使用 3dd</li>
+<li>行复制粘贴 – 复制：命令模式下，nyy（3yy）– 粘贴：命令模式下，p – 细节，复制时要把光标放在多行的第一行，粘贴时实际粘贴到当前光标所在行的下一行。</li>
+</ul>
+<h2 id="3-命令行中一些符号的含义"><a href="#3-命令行中一些符号的含义" class="headerlink" title="3. 命令行中一些符号的含义"></a>3. 命令行中一些符号的含义</h2><ul>
+<li>.        代表当前目录</li>
+<li>..        代表上一层目录，当前目录的父目录</li>
+<li>-        代表前一个目录，刚才从哪个目录 cd 过来</li>
+<li>~        代表当前用户的宿主目录</li>
+<li>/        代表根目录</li>
+<li>$        普通用户的命令行提示符</li>
+<li>#        root用户的命令行提示符</li>
+<li>*        万能匹配符   </li>
+</ul>
+<h2 id="4-Linux-高阶命令"><a href="#4-Linux-高阶命令" class="headerlink" title="4. Linux 高阶命令"></a>4. Linux 高阶命令</h2><ul>
+<li><p>find</p>
+<p>功能：在 Linux 文件系统中，用来查找一个文件放在哪里。</p>
+<p>举例：find /etc -name “interfaces”</p>
+<p>总结：</p>
+<ul>
+<li><p>1&gt; 什么时候用 find？</p>
+<p>当你知道你要找的文件名，但是忘记了它被放在哪个目录下，用 find。</p>
+</li>
+<li><p>2&gt; 怎么用 find ？</p>
+<p>find 路径 -name “文件名”</p>
+<p>find / -name “文件名”</p>
+</li>
+</ul>
+</li>
+<li><p>grep</p>
+<p>功能：在一个文本文件中，查找某个词。</p>
+<p>举例：grep -nr “SUN” *     （所有路径）</p>
+<p>​       grep -nr “SUN” 路径</p>
+<p>总结：</p>
+<ul>
+<li><p>1&gt; 什么时候用 grep？</p>
+<p>当你想查找某个符号在哪些地方（有可能是一个文件，也有可能是多个文件组成的文件夹）出现过，就用 grep。</p>
+</li>
+<li><p>2&gt; 怎么用？</p>
+<p>grep -nr “要查找的符号” 要查找的目录或文件集合</p>
+<p>注意：-n表示查找结果中显示行号，-r表示要递归查找(文件夹里面也查)</p>
+</li>
+</ul>
+</li>
+<li><p>which 和 whereis</p>
+<p>功能：查找一个应用程序（二进制文件）在哪里</p>
+<p>举例：which ls         whereis ls</p>
+<p>区别：</p>
+<ul>
+<li>which 只显示二进制文件的路径</li>
+<li>whereis 显示二进制文件的路径，和其源码或 man 手册位置</li>
+</ul>
+</li>
+<li><p>uname</p>
+<p>功能：查看系统信息</p>
+<p>举例：uname -a</p>
+</li>
+<li><p>开机和关机</p>
+<p>init 0                关机</p>
+<p>init 2             重启</p>
+<p>shutdown -h now    立即关机</p>
+<p>shutdown -r now    立即重启</p>
+<p>reboot                重启</p>
+</li>
+<li><p>tree / lstree</p>
+<p>功能：显示文件和目录由根目录开始的树形结构</p>
+</li>
+<li><p>mount / umount</p>
+<p>功能：用来挂载磁盘到文件系统中</p>
+<p>举例：mount -t nfs -o nolock 192.168.1.141:/root/rootfs /mnt    挂载</p>
+<p>umount /mnt 卸载</p>
+</li>
+<li><p>磁盘空间相关</p>
+<p>df -h    显示已挂载的分区列表，大小、容量</p>
+<p>du -h    列出文件或文件夹的大小</p>
+<p>du -h 文件名，可以列出这个文件有多大，列出方式是以人比较好看懂的方式。不像 ls -l 列出的都是以字节为单位。</p>
+</li>
+</ul>
+<ul>
+<li><p>用户管理</p>
+<p>useradd user1    添加一个名为 user1 的用户</p>
+<p>userdel user1    删除一个名为 user1 的用户</p>
+<p>passwd user1    为名为 user 的用户设置密码</p>
+<p>adduser user1    添加一个名为 user1 的用户，同时创建宿主目录，用户 shell 等。</p>
+<p>adduser 和 useradd 的区别：</p>
+<p>adduser 是一个脚本，而 useradd 是一个二进制应用程序。adduser 创建用户时比较麻烦，但是一次设定完所有的信息；而 useradd 设置时简单，但需要额外的设置宿主目录，密码那些信息。</p>
+</li>
+<li><p>权限管理</p>
+<p>作用：用来管理系统中文件的权限。</p>
+<p>chmod (change mode)</p>
+<p>chown (change owner) chown meng a.c</p>
+<p>chgrp (change group) chgrp meng a.c</p>
+<p>ls -l 列出的属性：-rwxr-xr-x</p>
+<p>一共十个字符，第一个表示文件属性（d 表示文件夹，- 表示普通文件），剩下的9个分成三组。每组中三个分别表示 r 可读 w 可写 x 可执行。如果是字母表示有这个权限，如果是 - 表示没这个权限。三组分别表示：第一组表示文件属主的权限，第二组表示属主所在的组用户的权限，第三组表示其他用户的权限。</p>
+<p>权限还有另一种表示方法，用数字来表示。</p>
+<p>编码规则如下：</p>
+<ul>
+<li>r    可读        4</li>
+<li>w    可写        2</li>
+<li>-    无权限        0</li>
+<li>x    可执行        1</li>
+</ul>
+<p>有了这个编码规则，则 rwxr-xr-x  编码后为755</p>
+<p>第一种修改权限的方法：</p>
+<p>要把权限改成    rwxr–r–    则对应的编码值为744</p>
+<p>修改命令为：chmod 744 文件名</p>
+<p>第二种修改权限的方法：</p>
+<p>在原来的权限基础上进行修改，即增加或减少某权限。</p>
+<p>三个组用户的编码依次为： 属主u，属主所在的组g，其他用户o</p>
+<p>譬如</p>
+<p>要属主增加可执行权限    chmod u+x 文件名</p>
+<p>其他用户增加可写权限    chmod o+w 文件名</p>
+<p>属主所在组用户去掉可执行权限    chmod g-x 文件名</p>
+</li>
+<li><p>文件打包压缩与解压缩</p>
+<p>tar -czvf dir.tar.gz dir/        将dir目录打包成dir.tar.gz</p>
+<p>tar -cjvf dir.tar.bz2 dir/        将dir目录打包成dir.tar.bz2</p>
+<p>tar -zxvf dir.tar.gz             解压缩dir.tar.gz</p>
+<p>tar -jxvf dir.tar.bz2            解压缩dir.tar.bz2</p>
+</li>
+</ul>
+<ul>
+<li><p>sed 和 awk</p>
+<p>正则表达式。匹配加替换。</p>
+</li>
+<li><p>格式化文件系统</p>
+<p>mkfs    /dev/hd1</p>
+<p>mkfs -t vfat 32 -F /dev/hd1        创建一个FAT32文件系统    </p>
+</li>
+<li><p>网络配置命令</p>
+<p>ifconfig eth0 192.168.1.13        设置IP地址</p>
+<p>ifconfig eth0 up                启动网卡</p>
+<p>ifconfig eth0 down                禁用网卡</p>
+<p>ifup eth0                        启动网卡</p>
+<p>ifdown eth0                        禁用网卡</p>
+<p>ifconfig eth0 192.168.1.1 netmask 255.255.255.0    同时设置IP和子网掩码</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/15/Linux-Something/" data-id="cjg07sam40003207du8kschi3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/14/PyCharm-快捷键/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PyCharm 快捷键</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyCharm/">PyCharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/15/Linux-Something/">Linux Something</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/PyCharm-快捷键/">PyCharm 快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Python-风格指南/">Python 风格指南</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/12/装饰器/">装饰器</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/04/在-Git-下创建一个空分支/">在 Git 下创建一个空分支</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 kuz0<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
